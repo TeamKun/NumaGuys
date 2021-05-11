@@ -1,8 +1,8 @@
-package net.kunmc.lab.numguys;
+package net.kunmc.lab.numaguys;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class NumGuys extends JavaPlugin {
+public final class NumaGuys extends JavaPlugin {
 
     @Override
     public void onEnable() {

@@ -1,4 +1,4 @@
-name: NumGuys
+name: numaguys
 version: ${project.version}
-main: net.kunmc.lab.numguys.NumGuys
+main: net.kunmc.lab.numaguys.numaguys
 api-version: 1.16
