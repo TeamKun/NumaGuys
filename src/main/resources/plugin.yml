@@ -1,0 +1,4 @@
+name: NumGuys
+version: ${project.version}
+main: net.kunmc.lab.numguys.NumGuys
+api-version: 1.16
