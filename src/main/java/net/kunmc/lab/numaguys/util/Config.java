@@ -96,8 +96,10 @@ public class Config {
             case Const.COMMAND_ALL:
                 Config.difficulty = arg;
                 sender.sendMessage(DecolationConst.GREEN + "難易度を" + difficulty + "に設定しました");
+                break;
             default:
                 sender.sendMessage(DecolationConst.RED + "引数が不正です");
+                break;
         }
 
     }

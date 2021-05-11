@@ -49,4 +49,12 @@ public class Const {
     /** インデックス: 答え */
     public static final int INDEX_ANSWER = 2;
 
+    /*********
+     * モード *
+     *********/
+    public enum Mode {
+        NORMAL_MODE,
+        REVERSE_MODE;
+    }
+
 }

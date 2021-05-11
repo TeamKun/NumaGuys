@@ -19,4 +19,16 @@ public class Question {
     public void show(CommandSender sender) {
         sender.sendMessage(difficulty + ":" + question + "=" + answer);
     }
+
+    public String difficulty() {
+        return this.difficulty;
+    }
+
+    public String question() {
+        return this.question;
+    }
+
+    public int answer() {
+        return this.answer;
+    }
 }

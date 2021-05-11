@@ -63,7 +63,7 @@ public final class NumaGuys extends JavaPlugin {
                 csvInput.add(data);
             }
 
-            GameTask.questions = new Questions(csvInput);
+            GameTask.csvInput = csvInput;
 
         } catch (IOException exception) {
             throw new RuntimeException(exception);

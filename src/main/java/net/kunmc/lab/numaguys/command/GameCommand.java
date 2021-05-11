@@ -1,6 +1,8 @@
 package net.kunmc.lab.numaguys.command;
 
+import net.kunmc.lab.numaguys.game.GameMode;
 import net.kunmc.lab.numaguys.game.GameTask;
+import net.kunmc.lab.numaguys.question.Questions;
 import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecolationConst;
@@ -46,7 +48,7 @@ public class GameCommand {
      * ゲーム強制終了
      */
     private static void stop(CommandSender sender) {
-        if (GameTask.questions == null) return;
+        GameTask.questions = new Questions(GameTask.csvInput);
         GameTask.questions.show(sender);
         //sender.sendMessage(Const.COMMAND_STOP);
     }
