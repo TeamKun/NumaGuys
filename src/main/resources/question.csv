@@ -1,0 +1,30 @@
+primary,1 + 1,2
+primary,1 - 1,0
+primary,1 × 1,1
+primary,1 ÷ 1,1
+primary,2 × 2,4
+primary,4 ÷ 2,2
+primary,1/2 + 3/2,2
+primary,1/2 × 4,2
+primary,4 ÷ 1/2,8
+primary,3.5 × 2,7
+junior-high,中学 0,0
+junior-high,中学 1,1
+junior-high,中学 2,2
+junior-high,中学 3,3
+junior-high,中学 4,4
+junior-high,中学 5,5
+junior-high,中学 6,6
+junior-high,中学 7,7
+junior-high,中学 8,8
+junior-high,中学 9,9
+high,高校0,0
+high,高校1,1
+high,高校2,2
+high,高校3,3
+high,高校4,4
+high,高校5,5
+high,高校6,6
+high,高校7,7
+high,高校8,8
+high,高校9,9

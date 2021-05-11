@@ -4,7 +4,6 @@ import net.kunmc.lab.numaguys.game.GameTask;
 import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecolationConst;
-import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -47,7 +46,9 @@ public class GameCommand {
      * ゲーム強制終了
      */
     private static void stop(CommandSender sender) {
-        sender.sendMessage(Const.COMMAND_STOP);
+        if (GameTask.questions == null) return;
+        GameTask.questions.show(sender);
+        //sender.sendMessage(Const.COMMAND_STOP);
     }
 
     /**

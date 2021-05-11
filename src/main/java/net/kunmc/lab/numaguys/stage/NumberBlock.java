@@ -59,9 +59,11 @@ public enum NumberBlock {
                 .orElse(null);
     }
 
+    /**
+     * 数字ブロックのリストを取得する.
+     * */
     public static List<NumberBlock> getBlockList() {
         List<NumberBlock> list = new ArrayList<>();
-
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 10; j++) {
                 list.add(getNumberBlock(j));

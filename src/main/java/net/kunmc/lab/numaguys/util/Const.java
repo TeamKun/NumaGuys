@@ -36,4 +36,17 @@ public class Const {
     public static final String COMMAND_HIGH = "high";
     /** 難易度: すべて */
     public static final String COMMAND_ALL = "all";
+
+    /*******
+     * csv *
+     *******/
+    /** ファイルパス */
+    public static final String FILE_PATH = "question.csv";
+    /** インデックス: 難易度 */
+    public static final int INDEX_DIFFICULTY = 0;
+    /** インデックス: 問題 */
+    public static final int INDEX_QUESTION = 1;
+    /** インデックス: 答え */
+    public static final int INDEX_ANSWER = 2;
+
 }
