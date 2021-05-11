@@ -1,4 +1,9 @@
-name: numaguys
+name: NumaGuys
 version: ${project.version}
-main: net.kunmc.lab.numaguys.numaguys
+main: net.kunmc.lab.numaguys.NumaGuys
 api-version: 1.16
+commands:
+  numaguys:
+    description: Numa Guys
+    usage: /<numaguys>
+    permission: op
