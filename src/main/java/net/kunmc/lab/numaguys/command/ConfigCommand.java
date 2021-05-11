@@ -1,5 +1,6 @@
 package net.kunmc.lab.numaguys.command;
 
+import net.kunmc.lab.numaguys.util.Config;
 import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecolationConst;
 import org.bukkit.command.CommandSender;
@@ -29,14 +30,17 @@ public class ConfigCommand {
      * 設定表示
      */
     private static void show(CommandSender sender) {
-        sender.sendMessage(Const.COMMAND_SHOW);
+        sender.sendMessage(DecolationConst.GREEN + "=============現在の設定=============");
+        sender.sendMessage(DecolationConst.GREEN + "パネルサイズ: " + Config.panelSize());
+        sender.sendMessage(DecolationConst.GREEN + "問題数: " + Config.questionSetLimit());
+        sender.sendMessage(DecolationConst.GREEN + "難易度: " + Config.difficulty());
+        sender.sendMessage(DecolationConst.GREEN + "==================================");
     }
 
     /**
      * 設定変更
      */
     private static void set(CommandSender sender, String[] subCommands) {
-        sender.sendMessage(Const.COMMAND_SET);
 
         // エラー:引数不足
         if (subCommands.length <= 3) {
@@ -46,13 +50,13 @@ public class ConfigCommand {
 
         switch (subCommands[2]) {
             case Const.COMMAND_PANEL_SIZE:
-                sender.sendMessage(Const.COMMAND_PANEL_SIZE + subCommands[3]);
+                Config.setPanelSize(sender, subCommands[3]);
                 break;
             case Const.COMMAND_QUESTION_SET_LIMIT:
-                sender.sendMessage(Const.COMMAND_QUESTION_SET_LIMIT + subCommands[3]);
+                Config.setQuestionSetLimit(sender, subCommands[3]);
                 break;
             case Const.COMMAND_DIFFICULTY:
-                sender.sendMessage(Const.COMMAND_DIFFICULTY + subCommands[3]);
+                Config.setDifficulty(sender, subCommands[3]);
                 break;
         }
     }
