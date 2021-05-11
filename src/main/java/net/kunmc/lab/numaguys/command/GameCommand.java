@@ -1,7 +1,13 @@
 package net.kunmc.lab.numaguys.command;
 
+import net.kunmc.lab.numaguys.game.GameTask;
+import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
+import net.kunmc.lab.numaguys.util.DecolationConst;
+import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class GameCommand {
     static void execute(CommandSender sender, String subCommand) {
@@ -25,13 +31,15 @@ public class GameCommand {
      * ノーマルモード
      */
     private static void normalMode(CommandSender sender) {
-        sender.sendMessage(Const.COMMAND_NORMAL_MODE);
+        if (!stageExist(sender)) return;
+         sender.sendMessage(Const.COMMAND_NORMAL_MODE);
     }
 
     /**
      * リバースモード
      */
     private static void reverseMode(CommandSender sender) {
+        if (!stageExist(sender)) return;
         sender.sendMessage(Const.COMMAND_REVERSE_MODE);
     }
 
@@ -46,6 +54,28 @@ public class GameCommand {
      * ステージ生成
      */
     private static void setStage(CommandSender sender) {
-        sender.sendMessage(Const.COMMAND_SET_STAGE);
+        if (!(sender instanceof Player)) return;
+
+        new BukkitRunnable() {
+            public void run() {
+                if (GameTask.stage != null) {
+                    GameTask.stage.clearPanels();
+                }
+                GameTask.stage = new Stage(((Player) sender).getLocation());
+                GameTask.stage.setDummyPanels();
+            }
+        }.run();
+    }
+
+    /**
+     * ステージの存在チェック
+     * */
+    private static boolean stageExist(CommandSender sender) {
+        Boolean exist = GameTask.stage != null;
+
+        if (!exist) {
+            sender.sendMessage(DecolationConst.RED + "ステージが存在しません");
+        }
+        return exist;
     }
 }
