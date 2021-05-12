@@ -14,12 +14,15 @@ public class GameTask extends BukkitRunnable {
     /** 問題リスト(全問) */
     public static List<String[]> csvInput;
     /** ゲームモード */
-    private static GameMode gameMode;
-
-    public static Questions questions;
+    public static GameMode gameMode;
 
     @Override
     public void run() {
+
+        // ゲーム実行中か判定
+        if (gameMode == null) return;
+
+        gameMode.showTitle();
 
     }
 

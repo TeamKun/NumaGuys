@@ -57,4 +57,9 @@ public class Const {
         REVERSE_MODE;
     }
 
+    public enum GameState {
+        WAITING,
+        QUESTION,
+        ANSWER;
+    }
 }

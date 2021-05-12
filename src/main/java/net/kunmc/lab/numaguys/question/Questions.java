@@ -36,11 +36,12 @@ public class Questions {
         }
     }
 
-    public void show(CommandSender sender) {
-        questionList.forEach(question -> {
-            question.show(sender);
-        });
+    /**
+     * リストから1個目の問題を取得し消去する
+     * @return 問題 リストサイズが0の場合はnull
+     * */
+    public Question getQuestion() {
+        if (questionList.size() <= 0) return null;
+        return questionList.remove(0);
     }
-
-
 }

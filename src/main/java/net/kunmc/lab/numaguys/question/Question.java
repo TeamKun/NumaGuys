@@ -1,6 +1,6 @@
 package net.kunmc.lab.numaguys.question;
 
-import org.bukkit.command.CommandSender;
+import net.kunmc.lab.numaguys.util.Util;
 
 public class Question {
     /** 難易度 */
@@ -16,19 +16,17 @@ public class Question {
         this.answer = Integer.parseInt(answer);
     }
 
-    public void show(CommandSender sender) {
-        sender.sendMessage(difficulty + ":" + question + "=" + answer);
+    /**
+     * 問題を表示する
+     * */
+    public void showQuestion() {
+        Util.showTitle(question, "");
     }
 
-    public String difficulty() {
-        return this.difficulty;
-    }
-
-    public String question() {
-        return this.question;
-    }
-
-    public int answer() {
-        return this.answer;
+    /**
+     * 答えを表示する
+     * */
+    public void showAnswer() {
+        Util.showTitle("A." + answer, question);
     }
 }

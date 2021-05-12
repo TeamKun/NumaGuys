@@ -1,11 +1,11 @@
 package net.kunmc.lab.numaguys.command;
 
-import net.kunmc.lab.numaguys.game.GameMode;
+import net.kunmc.lab.numaguys.game.GameModeController;
 import net.kunmc.lab.numaguys.game.GameTask;
-import net.kunmc.lab.numaguys.question.Questions;
 import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.Util;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -33,7 +33,8 @@ public class GameCommand {
      */
     private static void normalMode(CommandSender sender) {
         if (!stageExist(sender)) return;
-         sender.sendMessage(Const.COMMAND_NORMAL_MODE);
+        Util.sendMessageAll(DecolationConst.GREEN + "ノーマルモードを開始します。");
+        GameModeController.controller(Const.Mode.NORMAL_MODE);
     }
 
     /**
@@ -41,16 +42,26 @@ public class GameCommand {
      */
     private static void reverseMode(CommandSender sender) {
         if (!stageExist(sender)) return;
-        sender.sendMessage(Const.COMMAND_REVERSE_MODE);
+        Util.sendMessageAll(DecolationConst.GREEN + "リバースモードを開始します。");
+        GameModeController.controller(Const.Mode.REVERSE_MODE);
     }
 
     /**
      * ゲーム強制終了
      */
     private static void stop(CommandSender sender) {
-        GameTask.questions = new Questions(GameTask.csvInput);
-        GameTask.questions.show(sender);
-        //sender.sendMessage(Const.COMMAND_STOP);
+        // 表示中のタイトルを消去
+        Util.clearTitle();
+        Util.sendMessageAll(DecolationConst.GREEN + "ゲームを強制終了します。");
+
+        if (GameTask.gameMode == null) {
+            sender.sendMessage(DecolationConst.RED + "実行中のモードはありません。");
+            return;
+        }
+        GameTask.gameMode.clearPlayerState();
+        GameTask.gameMode = null;
+
+        return;
     }
 
     /**
@@ -58,7 +69,6 @@ public class GameCommand {
      */
     private static void setStage(CommandSender sender) {
         if (!(sender instanceof Player)) return;
-
         new BukkitRunnable() {
             public void run() {
                 if (GameTask.stage != null) {
