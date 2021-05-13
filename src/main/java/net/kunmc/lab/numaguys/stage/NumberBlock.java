@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum NumberBlock {
+    AIR(Material.AIR,-3),
     DUMMY1(Material.WHITE_CONCRETE, -2),
     DUMMY2(Material.RED_CONCRETE, -1),
     ZERO(Material.ORANGE_CONCRETE, 0),
@@ -22,16 +23,16 @@ public enum NumberBlock {
     NINE(Material.PURPLE_CONCRETE, 9);
 
     private Material material;
-    private int key;
+    private int number;
 
-    NumberBlock(Material material, int key) {
+    NumberBlock(Material material, int number) {
         this.material = material;
-        this.key = key;
+        this.number = number;
     }
 
     public Material material() {return material;}
 
-    public int key() {return key;}
+    public int number() {return number;}
 
     /**
      * ブロックマテリアルからキー情報を引き当てる.
@@ -54,7 +55,7 @@ public enum NumberBlock {
      * */
     public static NumberBlock getNumberBlock(int number) {
         return Arrays.stream(NumberBlock.values())
-                .filter(data -> data.key() == number)
+                .filter(data -> data.number() == number)
                 .findFirst()
                 .orElse(null);
     }

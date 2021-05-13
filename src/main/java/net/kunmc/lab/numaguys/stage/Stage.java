@@ -3,7 +3,6 @@ package net.kunmc.lab.numaguys.stage;
 
 import net.kunmc.lab.numaguys.util.Config;
 import org.bukkit.Location;
-import org.bukkit.Material;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Stage {
      * */
     public void clearPanels() {
         panels.forEach(panel -> {
-            panel.setBlock(Material.AIR);
+            panel.setBlock(NumberBlock.DUMMY1);
         });
     }
 
@@ -42,24 +41,35 @@ public class Stage {
     public void setDummyPanels() {
         for (int i = 0; i < panels.size(); i++) {
             Panel panel = panels.get(i);
-
             if (i % 2 == 0) {
-                panel.setBlock(NumberBlock.DUMMY1.material());
+                panel.setBlock(NumberBlock.DUMMY1);
             } else {
-                panel.setBlock(NumberBlock.DUMMY2.material());
+                panel.setBlock(NumberBlock.DUMMY2);
             }
         }
     }
 
+    /**
+     * 数字パネルをランダムに設置する
+     * */
     public void setRandomPanels() {
         List<NumberBlock> list = NumberBlock.getBlockList();
         Random random = new Random();
-
         panels.forEach(panel -> {
             panel.setBlock(
-                    list.remove(random.nextInt(list.size())).material()
+                    list.remove(random.nextInt(list.size()))
             );
         });
+    }
 
+    /**
+     * 解答をセットする
+     * */
+    public void setAnswer(int answer, boolean isReverse) {
+        panels.forEach(panel -> {
+            panel.setAnswer(answer, isReverse);
+        });
     }
 }
+
+

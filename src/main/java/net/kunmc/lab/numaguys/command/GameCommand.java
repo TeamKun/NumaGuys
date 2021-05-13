@@ -54,12 +54,12 @@ public class GameCommand {
         Util.clearTitle();
         Util.sendMessageAll(DecolationConst.GREEN + "ゲームを強制終了します。");
 
-        if (GameTask.gameMode == null) {
+        if (GameTask.isNeutral()) {
             sender.sendMessage(DecolationConst.RED + "実行中のモードはありません。");
             return;
         }
-        GameTask.gameMode.clearPlayerState();
-        GameTask.gameMode = null;
+
+        GameTask.reset();
 
         return;
     }

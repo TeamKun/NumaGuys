@@ -29,7 +29,7 @@ public final class NumaGuys extends JavaPlugin {
         getCommand(Const.COMMAND_NUMA_GUYS).setTabCompleter(new TabComplete());
 
         // ゲームタスク起動
-        new GameTask().runTaskTimer(this, 0, 5);
+        new GameTask().runTaskTimerAsynchronously(this, 0, 5);
 
         // コンフィグロード
         Config.loadConfig(false);
@@ -41,9 +41,7 @@ public final class NumaGuys extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if (GameTask.stage != null) {
-            GameTask.stage.clearPanels();
-        }
+        GameTask.stage.clearPanels();
     }
 
     /**

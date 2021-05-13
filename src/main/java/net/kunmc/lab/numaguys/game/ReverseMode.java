@@ -38,7 +38,7 @@ public class ReverseMode implements GameMode {
     /**
      * 状態に応じてタイトルを表示する
      * */
-    public void showTitle() {
+    public void showState() {
 //        switch (this.gameState) {
 //            case QUESTION:
 //                this.currentQuestion.showQuestion();
@@ -49,5 +49,21 @@ public class ReverseMode implements GameMode {
 //            case WAITING:
 //                Util.clearTitle();
 //        }
+    }
+
+    /**
+     * 問題がすべて消化されたか判定する
+     * */
+    public boolean gameSet() {
+       // return questions.isEmpty() && currentQuestion == null;
+        return true;
+    }
+
+    /**
+     * 処理中か判断する
+     * */
+    public boolean isExecuting() {
+        //return isExecuting;
+        return true;
     }
 }

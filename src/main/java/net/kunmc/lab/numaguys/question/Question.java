@@ -29,4 +29,11 @@ public class Question {
     public void showAnswer() {
         Util.showTitle("A." + answer, question);
     }
+
+    /**
+     * 解答を取得する
+     * */
+    public int answer() {
+        return this.answer;
+    }
 }

@@ -23,7 +23,7 @@ public class Util {
      * */
     public static void showTitle(String title, String subTitle) {
         Bukkit.getOnlinePlayers().forEach(player -> {
-            player.sendTitle(title, subTitle,0,10000,0);
+            player.sendTitle(title, subTitle,0,100,0);
         });
     }
 
@@ -45,5 +45,25 @@ public class Util {
                 player.playSound(player.getLocation(),sound,1,1);
             }
         });
+    }
+
+    /**
+     * アクションバーをセットする
+     * */
+    public static void setActionBar(String message) {
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            player.sendActionBar(message);
+        });
+    }
+
+    /**
+     * ゲームセット時のSEを再生する
+     * */
+    public static void playGameSetSound() {
+        Collection<Player> players = (Collection<Player>) Bukkit.getOnlinePlayers();
+
+        for(Player player : players) {
+            player.getLocation().getWorld().playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE,1,1);
+        }
     }
 }

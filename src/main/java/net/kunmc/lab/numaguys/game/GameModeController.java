@@ -1,5 +1,6 @@
 package net.kunmc.lab.numaguys.game;
 
+import net.kunmc.lab.numaguys.NumaGuys;
 import net.kunmc.lab.numaguys.util.Const;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -22,7 +23,6 @@ public class GameModeController {
     }
 
     private static void setGameMode(GameMode mode) {
-
         Collection<Player> players = (Collection<Player>) Bukkit.getOnlinePlayers();
 
         new BukkitRunnable() {
@@ -43,14 +43,13 @@ public class GameModeController {
 
                     // ゲームモードをセット
                     mode.init();
-                    GameTask.gameMode = mode;
+                    GameTask.setGameMode(mode);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
             }
-        }.run();
+        }.runTaskAsynchronously(NumaGuys.plugin);
     }
 
     /**

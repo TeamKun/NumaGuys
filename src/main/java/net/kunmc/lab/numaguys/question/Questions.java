@@ -44,4 +44,11 @@ public class Questions {
         if (questionList.size() <= 0) return null;
         return questionList.remove(0);
     }
+
+    /**
+     * 問題リストが空か判定する
+     * */
+    public boolean isEmpty() {
+        return this.questionList.size() <= 0;
+    }
 }
