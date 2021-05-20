@@ -12,8 +12,8 @@ public class Config {
     private static int panelSize;
     /** 問題数 */
     private static int questionSetLimit;
-    /** 難易度 */
-    private static String difficulty;
+    /** シンキングタイム */
+    private static int thinkingTime;
 
     /**
      * コンフィグをロードする
@@ -35,7 +35,7 @@ public class Config {
         period = config.getInt("period");
         panelSize = config.getInt("panelSize");
         questionSetLimit = config.getInt("questionSetLimit");
-        difficulty = (config.getString("difficulty"));
+        thinkingTime = config.getInt("thinkingTime");
     }
 
     /**********
@@ -53,9 +53,7 @@ public class Config {
         return questionSetLimit;
     }
 
-    public static String difficulty() {
-        return difficulty;
-    }
+    public static int thinkingTime() {return thinkingTime;}
 
     /**********
      * setter *
@@ -86,21 +84,14 @@ public class Config {
     }
 
     /**
-     * コマンドで難易度を設定する
+     * コマンドでシンキングタイムを設定する
      **/
-    public static void setDifficulty(CommandSender sender, String arg) {
-        switch (arg) {
-            case Const.COMMAND_PRIMARY:
-            case Const.COMMAND_JUNIOR_HIGH:
-            case Const.COMMAND_HIGH:
-            case Const.COMMAND_ALL:
-                Config.difficulty = arg;
-                sender.sendMessage(DecolationConst.GREEN + "難易度を" + difficulty + "に設定しました");
-                break;
-            default:
-                sender.sendMessage(DecolationConst.RED + "引数が不正です");
-                break;
+    public static void setThinkingTime(CommandSender sender, String arg) {
+        try {
+            thinkingTime = Integer.parseInt(arg);
+            sender.sendMessage(DecolationConst.GREEN + "シンキングタイムを" + thinkingTime + "秒に設定しました");
+        } catch (NumberFormatException e) {
+            sender.sendMessage("引数が不正です");
         }
-
     }
 }

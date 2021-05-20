@@ -1,9 +1,6 @@
 package net.kunmc.lab.numaguys.game;
 
-import net.kunmc.lab.numaguys.question.Questions;
 import net.kunmc.lab.numaguys.stage.Stage;
-import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.Util;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
@@ -32,7 +29,6 @@ public class GameTask extends BukkitRunnable {
         gameMode.execute();
         // 問題表示処理
         gameMode.showState();
-        Util.sendMessageAll("問題表示処理");
     }
 
     /**

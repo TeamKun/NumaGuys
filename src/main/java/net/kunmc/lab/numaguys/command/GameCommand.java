@@ -5,7 +5,9 @@ import net.kunmc.lab.numaguys.game.GameTask;
 import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.ScoreBoardManager;
 import net.kunmc.lab.numaguys.util.Util;
+import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -13,13 +15,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class GameCommand {
     static void execute(CommandSender sender, String subCommand) {
         switch (subCommand) {
-            case Const.COMMAND_NORMAL_MODE:
+            case Const.COMMAND_GAME_START:
                 normalMode(sender);
                 break;
-            case Const.COMMAND_REVERSE_MODE:
-                reverseMode(sender);
-                break;
-            case Const.COMMAND_STOP:
+            case Const.COMMAND_GAME_STOP:
                 stop(sender);
                 break;
             case Const.COMMAND_SET_STAGE:
@@ -34,16 +33,9 @@ public class GameCommand {
     private static void normalMode(CommandSender sender) {
         if (!stageExist(sender)) return;
         Util.sendMessageAll(DecolationConst.GREEN + "ノーマルモードを開始します。");
+        ScoreBoardManager.clearCount();
+        Util.changeGameMode(GameMode.ADVENTURE);
         GameModeController.controller(Const.Mode.NORMAL_MODE);
-    }
-
-    /**
-     * リバースモード
-     */
-    private static void reverseMode(CommandSender sender) {
-        if (!stageExist(sender)) return;
-        Util.sendMessageAll(DecolationConst.GREEN + "リバースモードを開始します。");
-        GameModeController.controller(Const.Mode.REVERSE_MODE);
     }
 
     /**

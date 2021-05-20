@@ -8,11 +8,9 @@ public class Const {
     /** メインコマンド　*/
     public static final String COMMAND_NUMA_GUYS = "numaguys";
     /** ノーマルモード起動 */
-    public static final String COMMAND_NORMAL_MODE = "normal-mode";
-    /** リバースモード起動 */
-    public static final String COMMAND_REVERSE_MODE = "reverse-mode";
+    public static final String COMMAND_GAME_START = "game_start";
     /** ストップ */
-    public static final String COMMAND_STOP = "stop";
+    public static final String COMMAND_GAME_STOP = "game_stop";
     /**　ステージ生成 */
     public static final String COMMAND_SET_STAGE = "set-stage";
 
@@ -26,16 +24,8 @@ public class Const {
     public static final String COMMAND_PANEL_SIZE = "panel-size";
     /** 問題数 */
     public static final String COMMAND_QUESTION_SET_LIMIT = "question-set-limit";
-    /** 難易度 */
-    public static final String COMMAND_DIFFICULTY = "difficulty";
-    /** 難易度: 小学校レベル */
-    public static final String COMMAND_PRIMARY = "primary";
-    /** 難易度: 中学校レベル */
-    public static final String COMMAND_JUNIOR_HIGH = "junior-high";
-    /** 難易度: 高校レベル */
-    public static final String COMMAND_HIGH = "high";
-    /** 難易度: すべて */
-    public static final String COMMAND_ALL = "all";
+    /** シンキングタイム */
+    public static final String COMMAND_THINKING_TIME = "thinkingTime";
 
     /*******
      * csv *
@@ -43,9 +33,9 @@ public class Const {
     /** ファイルパス */
     public static final String FILE_PATH = "question.csv";
     /** インデックス: 難易度 */
-    public static final int INDEX_DIFFICULTY = 0;
+    public static final int INDEX_TITLE = 0;
     /** インデックス: 問題 */
-    public static final int INDEX_QUESTION = 1;
+    public static final int INDEX_SUB_TITLE = 1;
     /** インデックス: 答え */
     public static final int INDEX_ANSWER = 2;
 

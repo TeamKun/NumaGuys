@@ -33,7 +33,7 @@ public class ConfigCommand {
         sender.sendMessage(DecolationConst.GREEN + "=============現在の設定=============");
         sender.sendMessage(DecolationConst.GREEN + "パネルサイズ: " + Config.panelSize());
         sender.sendMessage(DecolationConst.GREEN + "問題数: " + Config.questionSetLimit());
-        sender.sendMessage(DecolationConst.GREEN + "難易度: " + Config.difficulty());
+        sender.sendMessage(DecolationConst.GREEN + "シンキングタイム: " + Config.thinkingTime());
         sender.sendMessage(DecolationConst.GREEN + "==================================");
     }
 
@@ -55,9 +55,8 @@ public class ConfigCommand {
             case Const.COMMAND_QUESTION_SET_LIMIT:
                 Config.setQuestionSetLimit(sender, subCommands[3]);
                 break;
-            case Const.COMMAND_DIFFICULTY:
-                Config.setDifficulty(sender, subCommands[3]);
-                break;
+            case Const.COMMAND_THINKING_TIME:
+                Config.setThinkingTime(sender, subCommands[3]);
         }
     }
 }

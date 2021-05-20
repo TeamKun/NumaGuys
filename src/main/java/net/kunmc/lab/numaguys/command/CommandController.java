@@ -31,9 +31,8 @@ public class CommandController implements CommandExecutor {
         // サブコマンド分岐
         switch (args[0]) {
             // ゲームモードに関するコマンド
-            case Const.COMMAND_NORMAL_MODE:
-            case Const.COMMAND_REVERSE_MODE:
-            case Const.COMMAND_STOP:
+            case Const.COMMAND_GAME_START:
+            case Const.COMMAND_GAME_STOP:
             case Const.COMMAND_SET_STAGE:
                 GameCommand.execute(sender,args[0]);
                 break;

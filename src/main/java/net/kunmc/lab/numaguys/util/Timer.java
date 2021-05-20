@@ -8,15 +8,8 @@ public class Timer {
     /** タイムリミット（秒） */
     private int limit;
 
-    public Timer(int limit, boolean isAsync) {
+    public Timer(int limit) {
         this.limit = limit;
-
-        if(isAsync) {
-            startAsync();
-        } else {
-            startSync();
-        }
-
     }
 
     /**
@@ -36,7 +29,7 @@ public class Timer {
     /**
      * タイマー処理(非同期)
      * */
-    private void startAsync() {
+    public void startAsync() {
         new BukkitRunnable() {
             public void run() {
                 Util.playSoundAll(Sound.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON);
@@ -48,15 +41,20 @@ public class Timer {
     /**
      * タイマー処理(同期)
      * */
-    private void startSync() {
-        while (limit >= 0) {
+    public void startSync(boolean playSound) {
+        while (limit > 0) {
             try {
                 Thread.sleep(1000);
-                Util.playSoundAll(Sound.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON);
+                if (playSound) {
+                    Util.playSoundAll(Sound.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON);
+                }
                 limit --;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+        if (playSound) {
+            Util.playSoundAll(Sound.BLOCK_ANVIL_USE);
         }
     }
 }

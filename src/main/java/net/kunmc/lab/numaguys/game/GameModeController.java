@@ -57,7 +57,7 @@ public class GameModeController {
      * */
     private static void count(Collection<Player> players,String msg) {
         for(Player player : players) {
-            player.sendTitle(msg,null,5,15,5);
+            player.sendTitle(msg,"?に入る数字パネルの上に乗れ!",5,15,5);
             player.getLocation().getWorld().playSound(player.getLocation(), Sound.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON,0.2F,1);
         }
     }

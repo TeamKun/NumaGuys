@@ -1,6 +1,7 @@
 package net.kunmc.lab.numaguys.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -65,5 +66,16 @@ public class Util {
         for(Player player : players) {
             player.getLocation().getWorld().playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE,1,1);
         }
+    }
+
+    /**
+     * オンラインプレイヤーのゲームモードを変更する.
+     * */
+    public static void changeGameMode(GameMode gameMode) {
+        Collection<Player> players = (Collection<Player>) Bukkit.getOnlinePlayers();
+
+        players.forEach(player -> {
+            player.setGameMode(gameMode);
+        });
     }
 }

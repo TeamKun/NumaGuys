@@ -3,10 +3,7 @@ package net.kunmc.lab.numaguys.game;
 import net.kunmc.lab.numaguys.NumaGuys;
 import net.kunmc.lab.numaguys.question.Question;
 import net.kunmc.lab.numaguys.question.Questions;
-import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.Timer;
-import net.kunmc.lab.numaguys.util.Util;
-import org.bukkit.Sound;
+import net.kunmc.lab.numaguys.util.*;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class NormalMode implements GameMode {
@@ -44,7 +41,7 @@ public class NormalMode implements GameMode {
      * プレイヤーの状態をクリアする
      * */
     public void clearPlayerState() {
-        //TODO プレイヤーの状態をリセットする
+        Util.changeGameMode(org.bukkit.GameMode.SURVIVAL);
     }
 
     /**
@@ -57,25 +54,32 @@ public class NormalMode implements GameMode {
             public void run() {
                 // 処理開始
                 isExecuting = true;
-                Util.sendMessageAll("処理開始");
 
                 // ステージにダミーを設置する
                 GameTask.stage.setDummyPanels();
 
-                timer = new Timer(5,false);
+                timer = new Timer(3);
+                timer.startSync(false);
+
                 // 数字パネルを設置
                 GameTask.stage.setRandomPanels();
 
                 // 問題をセット
                 setQuestion();
 
-                timer = new Timer(10,false);
+                timer = new Timer(Config.thinkingTime());
+                timer.startSync(true);
 
                 // 解答をセット
                 setAnswer();
+
                 // 正解パネル以外を消去
                 GameTask.stage.setAnswer(currentQuestion.answer(), false);
-                timer = new Timer(5,false);
+                timer = new Timer(5);
+                timer.startSync(false);
+
+                // ポイントを追加
+                ScoreBoardManager.addPoint();
 
                 // 出題中の問題を削除
                 currentQuestion = null;
@@ -107,7 +111,7 @@ public class NormalMode implements GameMode {
                 this.currentQuestion.showAnswer();
                 break;
             case WAITING:
-                Util.clearTitle();
+                this.questions.showCurrentNo();
                 break;
         }
     }
@@ -137,6 +141,7 @@ public class NormalMode implements GameMode {
         if (isEnd) {
             Util.playGameSetSound();
             Util.showTitle("ゲーム終了！","");
+            questions.showQuestionList();
         }
 
         return isEnd;
