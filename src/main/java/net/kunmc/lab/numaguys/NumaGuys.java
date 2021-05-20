@@ -45,6 +45,7 @@ public final class NumaGuys extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (GameTask.stage == null) return;
         GameTask.stage.clearPanels();
     }
 
