@@ -1,6 +1,6 @@
 package net.kunmc.lab.numaguys.util;
 
-public class DecolationConst {
+public class DecorationConst {
 
     /**
      * カラーコード

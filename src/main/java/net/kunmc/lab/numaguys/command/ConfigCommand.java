@@ -2,7 +2,7 @@ package net.kunmc.lab.numaguys.command;
 
 import net.kunmc.lab.numaguys.util.Config;
 import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.DecorationConst;
 import org.bukkit.command.CommandSender;
 
 public class ConfigCommand {
@@ -10,7 +10,7 @@ public class ConfigCommand {
 
         // エラー:引数不足
         if (subCommands.length <= 1) {
-            sender.sendMessage(DecolationConst.RED + "引数が足りません。");
+            sender.sendMessage(DecorationConst.RED + "引数が足りません。");
             return;
         }
 
@@ -30,11 +30,11 @@ public class ConfigCommand {
      * 設定表示
      */
     private static void show(CommandSender sender) {
-        sender.sendMessage(DecolationConst.GREEN + "=============現在の設定=============");
-        sender.sendMessage(DecolationConst.GREEN + "パネルサイズ: " + Config.panelSize());
-        sender.sendMessage(DecolationConst.GREEN + "問題数: " + Config.questionSetLimit());
-        sender.sendMessage(DecolationConst.GREEN + "シンキングタイム: " + Config.thinkingTime());
-        sender.sendMessage(DecolationConst.GREEN + "==================================");
+        sender.sendMessage(DecorationConst.GREEN + "=============現在の設定=============");
+        sender.sendMessage(DecorationConst.GREEN + "パネルサイズ: " + Config.panelSize());
+        sender.sendMessage(DecorationConst.GREEN + "問題数: " + Config.questionSetLimit());
+        sender.sendMessage(DecorationConst.GREEN + "シンキングタイム: " + Config.thinkingTime());
+        sender.sendMessage(DecorationConst.GREEN + "==================================");
     }
 
     /**
@@ -44,7 +44,7 @@ public class ConfigCommand {
 
         // エラー:引数不足
         if (subCommands.length <= 3) {
-            sender.sendMessage(DecolationConst.RED + "引数が足りません。");
+            sender.sendMessage(DecorationConst.RED + "引数が足りません。");
             return;
         }
 

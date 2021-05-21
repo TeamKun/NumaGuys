@@ -2,7 +2,7 @@ package net.kunmc.lab.numaguys.question;
 
 import net.kunmc.lab.numaguys.util.Config;
 import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.DecorationConst;
 import net.kunmc.lab.numaguys.util.Util;
 
 import java.util.ArrayList;
@@ -66,13 +66,13 @@ public class Questions {
      * 問題のリストを表示する
      * */
     public void showQuestionList() {
-        Util.sendMessageAll(DecolationConst.GREEN + "=============現在の設定=============");
+        Util.sendMessageAll(DecorationConst.GREEN + "=============現在の設定=============");
 
         copyQuestionList.forEach(question -> {
-            Util.sendMessageAll(DecolationConst.GREEN + "問題:" + question.SubTitle() + " " + question.title());
-            Util.sendMessageAll(DecolationConst.YELLOW + "答え" + question.answer());
+            Util.sendMessageAll(DecorationConst.GREEN + "問題:" + question.SubTitle() + " " + question.title());
+            Util.sendMessageAll(DecorationConst.YELLOW + "答え" + question.answer());
         });
 
-        Util.sendMessageAll(DecolationConst.GREEN + "==================================");
+        Util.sendMessageAll(DecorationConst.GREEN + "==================================");
     }
 }

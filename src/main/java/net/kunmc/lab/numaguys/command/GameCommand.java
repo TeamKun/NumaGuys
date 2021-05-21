@@ -4,7 +4,7 @@ import net.kunmc.lab.numaguys.game.GameModeController;
 import net.kunmc.lab.numaguys.game.GameTask;
 import net.kunmc.lab.numaguys.stage.Stage;
 import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.DecorationConst;
 import net.kunmc.lab.numaguys.util.ScoreBoardManager;
 import net.kunmc.lab.numaguys.util.Util;
 import org.bukkit.GameMode;
@@ -32,7 +32,7 @@ public class GameCommand {
      */
     private static void normalMode(CommandSender sender) {
         if (!stageExist(sender)) return;
-        Util.sendMessageAll(DecolationConst.GREEN + "ノーマルモードを開始します。");
+        Util.sendMessageAll(DecorationConst.GREEN + "ノーマルモードを開始します。");
         ScoreBoardManager.clearCount();
         Util.changeGameMode(GameMode.ADVENTURE);
         GameModeController.controller(Const.Mode.NORMAL_MODE);
@@ -44,10 +44,10 @@ public class GameCommand {
     private static void stop(CommandSender sender) {
         // 表示中のタイトルを消去
         Util.clearTitle();
-        Util.sendMessageAll(DecolationConst.GREEN + "ゲームを強制終了します。");
+        Util.sendMessageAll(DecorationConst.GREEN + "ゲームを強制終了します。");
 
         if (GameTask.isNeutral()) {
-            sender.sendMessage(DecolationConst.RED + "実行中のモードはありません。");
+            sender.sendMessage(DecorationConst.RED + "実行中のモードはありません。");
             return;
         }
 
@@ -79,7 +79,7 @@ public class GameCommand {
         Boolean exist = GameTask.stage != null;
 
         if (!exist) {
-            sender.sendMessage(DecolationConst.RED + "ステージが存在しません");
+            sender.sendMessage(DecorationConst.RED + "ステージが存在しません");
         }
         return exist;
     }

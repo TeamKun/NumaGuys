@@ -65,9 +65,9 @@ public class Config {
     public static void setPanelSize(CommandSender sender, String arg) {
         try {
             panelSize = Integer.parseInt(arg);
-            sender.sendMessage(DecolationConst.GREEN + "パネルサイズを" + panelSize + "に設定しました");
+            sender.sendMessage(DecorationConst.GREEN + "パネルサイズを" + panelSize + "に設定しました");
         } catch (NumberFormatException e) {
-            sender.sendMessage(DecolationConst.RED + "引数が不正です");
+            sender.sendMessage(DecorationConst.RED + "引数が不正です");
         }
     }
 
@@ -77,7 +77,7 @@ public class Config {
     public static void setQuestionSetLimit(CommandSender sender, String arg) {
         try {
             questionSetLimit = Integer.parseInt(arg);
-            sender.sendMessage(DecolationConst.GREEN + "問題数を" + questionSetLimit + "問に設定しました");
+            sender.sendMessage(DecorationConst.GREEN + "問題数を" + questionSetLimit + "問に設定しました");
         } catch (NumberFormatException e) {
             sender.sendMessage("引数が不正です");
         }
@@ -89,7 +89,7 @@ public class Config {
     public static void setThinkingTime(CommandSender sender, String arg) {
         try {
             thinkingTime = Integer.parseInt(arg);
-            sender.sendMessage(DecolationConst.GREEN + "シンキングタイムを" + thinkingTime + "秒に設定しました");
+            sender.sendMessage(DecorationConst.GREEN + "シンキングタイムを" + thinkingTime + "秒に設定しました");
         } catch (NumberFormatException e) {
             sender.sendMessage("引数が不正です");
         }

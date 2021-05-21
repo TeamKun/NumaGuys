@@ -1,7 +1,7 @@
 package net.kunmc.lab.numaguys.command;
 
 import net.kunmc.lab.numaguys.util.Const;
-import net.kunmc.lab.numaguys.util.DecolationConst;
+import net.kunmc.lab.numaguys.util.DecorationConst;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,13 +18,13 @@ public class CommandController implements CommandExecutor {
 
         // エラー:OP権限がない
         if (!sender.isOp()) {
-            sender.sendMessage(DecolationConst.RED + "このコマンドを実行する権限がありません。必要権限:OP");
+            sender.sendMessage(DecorationConst.RED + "このコマンドを実行する権限がありません。必要権限:OP");
             return true;
         }
 
         // エラー:引数不足
         if (args.length <= 0) {
-            sender.sendMessage(DecolationConst.RED + "引数が足りません。");
+            sender.sendMessage(DecorationConst.RED + "引数が足りません。");
             return true;
         }
 
