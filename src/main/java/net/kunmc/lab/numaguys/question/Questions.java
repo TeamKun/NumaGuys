@@ -66,8 +66,7 @@ public class Questions {
      * 問題のリストを表示する
      * */
     public void showQuestionList() {
-        Util.sendMessageAll(DecorationConst.GREEN + "=============現在の設定=============");
-
+        Util.sendMessageAll(DecorationConst.GREEN + "================問題===============");
         copyQuestionList.forEach(question -> {
             Util.sendMessageAll(DecorationConst.GREEN + "問題:" + question.SubTitle() + " " + question.title());
             Util.sendMessageAll(DecorationConst.YELLOW + "答え" + question.answer());
