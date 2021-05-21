@@ -141,6 +141,7 @@ public class NormalMode implements GameMode {
         if (isEnd) {
             Util.playGameSetSound();
             Util.showTitle("ゲーム終了！","");
+            GameTask.stage.setDummyPanels();
             questions.showQuestionList();
         }
 
