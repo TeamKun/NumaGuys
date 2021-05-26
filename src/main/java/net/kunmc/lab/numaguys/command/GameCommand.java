@@ -1,5 +1,6 @@
 package net.kunmc.lab.numaguys.command;
 
+import net.kunmc.lab.numaguys.NumaGuys;
 import net.kunmc.lab.numaguys.game.GameModeController;
 import net.kunmc.lab.numaguys.game.GameTask;
 import net.kunmc.lab.numaguys.stage.Stage;
@@ -68,6 +69,11 @@ public class GameCommand {
             return;
         }
 
+        if (NumaGuys.task != null) {
+            NumaGuys.task.cancel();
+        }
+
+        Util.changeGameMode(GameMode.SURVIVAL);
         GameTask.reset();
 
         return;

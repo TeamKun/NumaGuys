@@ -50,7 +50,7 @@ public class KidsMode implements GameMode {
     public void execute() {
         // 処理中は起動しない
         if (isExecuting) return;
-        new BukkitRunnable() {
+        NumaGuys.task = new BukkitRunnable() {
             public void run() {
                 // 処理開始
                 isExecuting = true;

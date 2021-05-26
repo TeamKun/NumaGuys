@@ -1,6 +1,7 @@
 package net.kunmc.lab.numaguys.util;
 
 import net.kunmc.lab.numaguys.NumaGuys;
+import net.kunmc.lab.numaguys.game.GameTask;
 import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -43,6 +44,10 @@ public class Timer {
      * */
     public void startSync(boolean playSound) {
         while (limit > 0) {
+
+            if (GameTask.isNeutral()) {
+                break;
+            }
             try {
                 Thread.sleep(1000);
                 if (playSound) {
