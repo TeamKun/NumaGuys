@@ -7,6 +7,7 @@ import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.util.DecorationConst;
 import net.kunmc.lab.numaguys.util.ScoreBoardManager;
 import net.kunmc.lab.numaguys.util.Util;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -15,8 +16,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class GameCommand {
     static void execute(CommandSender sender, String subCommand) {
         switch (subCommand) {
-            case Const.COMMAND_GAME_START:
+            case Const.COMMAND_NORMAL_MODE_START:
                 normalMode(sender);
+                break;
+            case Const.COMMAND_KIDS_MODE_START:
+                kidsMode(sender);
                 break;
             case Const.COMMAND_GAME_STOP:
                 stop(sender);
@@ -27,6 +31,8 @@ public class GameCommand {
         }
     }
 
+
+
     /**
      * ノーマルモード
      */
@@ -36,6 +42,17 @@ public class GameCommand {
         ScoreBoardManager.clearCount();
         Util.changeGameMode(GameMode.ADVENTURE);
         GameModeController.controller(Const.Mode.NORMAL_MODE);
+    }
+
+    /**
+     * キッズモード
+     * */
+    private static void kidsMode(CommandSender sender) {
+        if (!stageExist(sender)) return;
+        Util.sendMessageAll(DecorationConst.GREEN + "KUNキッズモードを開始します。");
+        ScoreBoardManager.clearCount();
+        Util.changeGameMode(GameMode.ADVENTURE);
+        GameModeController.controller(Const.Mode.KIDS_MODE);
     }
 
     /**
@@ -61,6 +78,7 @@ public class GameCommand {
      */
     private static void setStage(CommandSender sender) {
         if (!(sender instanceof Player)) return;
+        Util.sendMessageAll(DecorationConst.GREEN + "パネルをセットしました。");
         new BukkitRunnable() {
             public void run() {
                 if (GameTask.stage != null) {

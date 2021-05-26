@@ -10,7 +10,9 @@ public class GameTask extends BukkitRunnable {
     /** ステージ */
     public static Stage stage;
     /** 問題リスト(全問) */
-    public static List<String[]> csvInput;
+    public static List<String[]> csvInputNormal;
+    /** 問題リスト(キッズ向け問題) */
+    public static List<String[]> csvInputKids;
     /** ゲームモード */
     private static GameMode gameMode;
 

@@ -43,7 +43,7 @@ public class Util {
     public static void playSoundAll(Sound sound) {
         Bukkit.getOnlinePlayers().forEach(player -> {
             if (player != null) {
-                player.playSound(player.getLocation(),sound,1,1);
+                player.playSound(player.getLocation(),sound,0.1f,1);
             }
         });
     }
@@ -64,7 +64,7 @@ public class Util {
         Collection<Player> players = (Collection<Player>) Bukkit.getOnlinePlayers();
 
         for(Player player : players) {
-            player.getLocation().getWorld().playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE,1,1);
+            player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE,0.1f,1);
         }
     }
 

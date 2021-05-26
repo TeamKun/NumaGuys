@@ -18,7 +18,7 @@ public class Questions {
     /** 現在の問題数 */
     private int current_no = 1;
 
-    public Questions(List<String[]> csvInput) {
+    public Questions(List<String[]> csvInput, Boolean isKidsMode) {
 
         questionList = csvInput.stream()
                 .map(row -> new Question(row[Const.INDEX_TITLE],row[Const.INDEX_SUB_TITLE],row[Const.INDEX_ANSWER]))
@@ -26,9 +26,14 @@ public class Questions {
 
         copyQuestionList = new ArrayList<>();
 
+        if (isKidsMode) {
+            return;
+        }
+
         // リストをシャッフル
         Collections.shuffle(questionList);
 
+        // 問題数を設定
         while (true) {
             if (questionList.size() <= Config.questionSetLimit()) break;
             questionList.remove(0);

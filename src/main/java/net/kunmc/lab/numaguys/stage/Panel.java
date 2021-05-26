@@ -28,7 +28,7 @@ public class Panel {
             for (int j = 0; j < Config.panelSize(); j++) {
                 locations.add(new Location(world,
                         maxLocation.getBlockX() + i,
-                           40,
+                           150,
                         maxLocation.getBlockZ() + j));
             }
         }

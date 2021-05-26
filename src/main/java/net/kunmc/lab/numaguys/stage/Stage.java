@@ -31,7 +31,7 @@ public class Stage {
      * */
     public void clearPanels() {
         panels.forEach(panel -> {
-            panel.setBlock(NumberBlock.DUMMY1);
+            panel.setBlock(NumberBlock.AIR);
         });
     }
 

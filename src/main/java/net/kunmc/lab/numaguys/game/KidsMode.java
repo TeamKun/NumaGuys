@@ -6,7 +6,7 @@ import net.kunmc.lab.numaguys.question.Questions;
 import net.kunmc.lab.numaguys.util.*;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class NormalMode implements GameMode {
+public class KidsMode implements GameMode {
 
     /** インスタンス(シングルトン) */
     private static GameMode instance;
@@ -25,7 +25,7 @@ public class NormalMode implements GameMode {
      * インスタンスを取得する
      * */
     public static GameMode instance() {
-        if (instance == null) instance = new NormalMode();
+        if (instance == null) instance = new KidsMode();
         return instance;
     }
 
@@ -34,7 +34,7 @@ public class NormalMode implements GameMode {
      * */
     public void init() {
         // 問題を取得
-        questions = new Questions(GameTask.csvInputNormal, false);
+        questions = new Questions(GameTask.csvInputKids,true);
     }
 
     /**

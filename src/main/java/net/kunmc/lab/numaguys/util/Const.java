@@ -8,9 +8,11 @@ public class Const {
     /** メインコマンド　*/
     public static final String COMMAND_NUMA_GUYS = "numaguys";
     /** ノーマルモード起動 */
-    public static final String COMMAND_GAME_START = "game_start";
+    public static final String COMMAND_NORMAL_MODE_START = "NormalMode-start";
+    /** キッズモード起動 */
+    public static final String COMMAND_KIDS_MODE_START = "KidsMode-start";
     /** ストップ */
-    public static final String COMMAND_GAME_STOP = "game_stop";
+    public static final String COMMAND_GAME_STOP = "game-stop";
     /**　ステージ生成 */
     public static final String COMMAND_SET_STAGE = "set-stage";
 
@@ -31,10 +33,12 @@ public class Const {
      * csv *
      *******/
     /** ファイルパス */
-    public static final String FILE_PATH = "question.csv";
-    /** インデックス: 難易度 */
+    public static final String FILE_PATH_NORMAL = "question.csv";
+    /** ファイルパス(キッズ向け) */
+    public static final String FILE_PATH_KIDS = "question2.csv";
+    /** インデックス: タイトル */
     public static final int INDEX_TITLE = 0;
-    /** インデックス: 問題 */
+    /** インデックス: サブタイトル */
     public static final int INDEX_SUB_TITLE = 1;
     /** インデックス: 答え */
     public static final int INDEX_ANSWER = 2;
@@ -44,7 +48,7 @@ public class Const {
      *********/
     public enum Mode {
         NORMAL_MODE,
-        REVERSE_MODE;
+        KIDS_MODE;
     }
 
     public enum GameState {

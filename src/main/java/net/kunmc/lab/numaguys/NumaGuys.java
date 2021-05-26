@@ -26,8 +26,10 @@ public final class NumaGuys extends JavaPlugin {
         plugin = this;
         // コンフィグロード
         Config.loadConfig(false);
+
         // 問題のロード
-        readCsv();
+        GameTask.csvInputNormal = readCsv(Const.FILE_PATH_NORMAL);
+        GameTask.csvInputKids = readCsv(Const.FILE_PATH_KIDS);
 
         // コマンド読み込み
         getCommand(Const.COMMAND_NUMA_GUYS).setExecutor(new CommandController());
@@ -51,10 +53,10 @@ public final class NumaGuys extends JavaPlugin {
 
     /**
      * 問題csvを読み込み
-     * */
-    private void readCsv() {
+     */
+    private List<String[]> readCsv(String filePath) {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(getResource(Const.FILE_PATH), StandardCharsets.UTF_8));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getResource(filePath), StandardCharsets.UTF_8));
 
             List<String[]> csvInput = new ArrayList<>();
 
@@ -66,7 +68,7 @@ public final class NumaGuys extends JavaPlugin {
                 csvInput.add(data);
             }
 
-            GameTask.csvInput = csvInput;
+            return csvInput;
 
         } catch (IOException exception) {
             throw new RuntimeException(exception);

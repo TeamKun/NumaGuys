@@ -33,7 +33,8 @@ public class TabComplete implements TabCompleter {
      * @param args
      */
     private List<String> args1(String[] args) {
-        return Stream.of(Const.COMMAND_GAME_START,
+        return Stream.of(Const.COMMAND_NORMAL_MODE_START,
+                Const.COMMAND_KIDS_MODE_START,
                 Const.COMMAND_GAME_STOP,
                 Const.COMMAND_SET_STAGE,
                 Const.COMMAND_CONFIG)

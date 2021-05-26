@@ -15,9 +15,8 @@ public class GameModeController {
             case NORMAL_MODE:
                 setGameMode(NormalMode.instance());
                 break;
-
-            case REVERSE_MODE:
-                setGameMode(ReverseMode.instance());
+            case KIDS_MODE:
+                setGameMode(KidsMode.instance());
                 break;
         }
     }
