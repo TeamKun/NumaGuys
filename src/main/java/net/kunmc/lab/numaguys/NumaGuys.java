@@ -7,7 +7,10 @@ import net.kunmc.lab.numaguys.util.Const;
 import net.kunmc.lab.numaguys.command.CommandController;
 import net.kunmc.lab.numaguys.command.TabComplete;
 import net.kunmc.lab.numaguys.util.ScoreBoardManager;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,10 +19,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class NumaGuys extends JavaPlugin {
+public final class NumaGuys extends JavaPlugin implements Listener {
 
     /** プラグインオブジェクト */
     public static NumaGuys plugin;
+
+    /** 非同期タスク */
+    public static BukkitTask task;
 
     @Override
     public void onEnable() {
@@ -47,9 +53,12 @@ public final class NumaGuys extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        if (GameTask.stage == null) return;
-        GameTask.stage.clearPanels();
+
     }
+
+
+
+
 
     /**
      * 問題csvを読み込み
