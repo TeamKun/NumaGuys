@@ -3,6 +3,7 @@ package net.kunmc.lab.numaguys.stage;
 import net.kunmc.lab.numaguys.NumaGuys;
 import net.kunmc.lab.numaguys.util.Config;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BoundingBox;
@@ -43,7 +44,12 @@ public class Panel {
                 });
             }
         }.runTask(NumaGuys.plugin);
+    }
 
+    void clearBlock() {
+        locations.forEach(location -> {
+            location.getBlock().setType(Material.AIR);
+        });
     }
 
     void setAnswer(int answer, boolean isReverse) {

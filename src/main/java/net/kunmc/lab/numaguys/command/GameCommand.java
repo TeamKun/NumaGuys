@@ -88,7 +88,7 @@ public class GameCommand {
         new BukkitRunnable() {
             public void run() {
                 if (GameTask.stage != null) {
-                    GameTask.stage.clearPanels();
+                    GameTask.stage.clearPanels(false);
                 }
                 GameTask.stage = new Stage(((Player) sender).getLocation());
                 GameTask.stage.setDummyPanels();

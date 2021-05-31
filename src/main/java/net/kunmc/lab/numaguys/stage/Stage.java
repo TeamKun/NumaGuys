@@ -29,9 +29,13 @@ public class Stage {
     /**
      * パネルをすべて消す
      * */
-    public void clearPanels() {
+    public void clearPanels(boolean isOnDisable) {
         panels.forEach(panel -> {
-            panel.setBlock(NumberBlock.AIR);
+            if (isOnDisable) {
+                panel.clearBlock();
+            } else {
+                panel.setBlock(NumberBlock.AIR);
+            }
         });
     }
 

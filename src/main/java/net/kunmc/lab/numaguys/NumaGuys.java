@@ -10,8 +10,6 @@ import net.kunmc.lab.numaguys.util.ScoreBoardManager;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,12 +51,10 @@ public final class NumaGuys extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-
+        if (GameTask.stage != null) {
+            GameTask.stage.clearPanels(true);
+        }
     }
-
-
-
-
 
     /**
      * 問題csvを読み込み
