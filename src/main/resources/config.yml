@@ -1,4 +1,4 @@
 period: 5 #処理のスパン(単位:tick)
 panelSize: 7 #パネルサイズ(辺の長さ)
 questionSetLimit: 10 #問題数
-thinkingTime: 15 #シンキングタイム(単位:秒)
+thinkingTime: 30 #シンキングタイム(単位:秒)
