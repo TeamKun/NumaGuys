@@ -2,6 +2,7 @@ package net.kunmc.lab.numaguys.game;
 
 import net.kunmc.lab.numaguys.NumaGuys;
 import net.kunmc.lab.numaguys.util.Const;
+import net.kunmc.lab.numaguys.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -37,7 +38,7 @@ public class GameModeController {
                     Thread.sleep(1000);
 
                     for(Player player : players) {
-                        player.getLocation().getWorld().playSound(player.getLocation(), Sound.BLOCK_ANVIL_PLACE,1,1);
+                        Util.playSoundAll(Sound.BLOCK_ANVIL_PLACE);
                     }
 
                     // ゲームモードをセット
